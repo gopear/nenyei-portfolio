@@ -1,36 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Album from "../components/Album.astro";
-import img1 from "../assets/img1.jpg";
-import img2 from "../assets/img2.jpg";
-import img3 from "../assets/img3.jpg";
-import '../styles/transitions.css'
+import "../styles/transitions.css";
 import { ViewTransitions } from "astro:transitions";
 
-
-const images = [img2, img1, img3];
 ---
+
 <Layout title="CSUMI.">
-	<main>
-		<ViewTransitions slot="head"/>
-		<div class="container ">
-			<Album
-				images={images}
-				title="na csumi"
-				description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae ipsa, itaque ex repellendus illo amet vel odit voluptate vitae suscipit? Sint quia odio tempore saepe animi fugiat tenetur exercitationem possimus."
-			/>
-		</div>
-	</main>
+    INDEX
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		display: flex;
-		justify-content: center;
-		padding: 1rem;
-		width: 90%;
-		font-size: 20px;
-		line-height: 1;
-	}
+    
 </style>
