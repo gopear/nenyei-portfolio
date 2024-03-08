@@ -1,6 +1,8 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import Layout from "../../layouts/Layout.astro";
 import { photos } from "../../photos";
+import "../../styles/transitions.css";
 
 export async function getStaticPaths() {
   return photos.map((photo) => ({ params: { id: photo.id } }));
@@ -12,6 +14,7 @@ const photo = photos.find((photo) => photo.id == id);
 ---
 
 <Layout title="">
+  <ViewTransitions slot="head"/>
   <div class="wrapper columns-2">
     <div class="text-wrapper">
       <div>
@@ -27,9 +30,9 @@ const photo = photos.find((photo) => photo.id == id);
 </Layout>
 
 <style>
+
   .wrapper {
     display: flex;
-    max-height: 100%;
   }
 
   .text-wrapper {
@@ -66,6 +69,7 @@ const photo = photos.find((photo) => photo.id == id);
   }
 
   .img {
-    
+    max-width: 100%;
+    max-height: 100vh;
   }
 </style>

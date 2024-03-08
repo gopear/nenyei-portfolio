@@ -3,6 +3,8 @@ import { ViewTransitions } from "astro:transitions";
 import Layout from "../layouts/Layout.astro";
 import Album from "../components/Album.astro";
 
+import "../styles/transitions.css";
+
 import { photos } from '../photos'
 
 ---
@@ -13,7 +15,7 @@ import { photos } from '../photos'
       <Album
         images={photos}
         title="na csumi"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae ipsa, itaque ex repellendus illo amet vel odit voluptate vitae suscipit? Sint quia odio tempore saepe animi fugiat tenetur exercitationem possimus."
+        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae ipsa, itaque ex repellendus illo amet vel odit voluptate vitae suscipit? Sint quia odio tempore saepe animi fugiat tenetur exercitationem possimus."    
       />
   </div>
 </Layout>
