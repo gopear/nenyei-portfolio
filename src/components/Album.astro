@@ -10,6 +10,12 @@ interface Props {
 }
 
 const { images, title, description } = Astro.props;
+
+const image_cols = [];
+for (let i = 0; i < images.length; i += 3) {
+  image_cols.push(images.slice(i, i + 3));
+}
+
 ---
 
 <div class="album">
@@ -19,7 +25,7 @@ const { images, title, description } = Astro.props;
   </div>
   <div class="grid grid-cols-2 md:grid-cols-3 gap-10">
     {
-      [images, images.toReversed(), images].map((img_arr) => {
+      image_cols.map((img_arr) => {
         return (
           <div class="grid gap-10">
             {img_arr.map((img) => {
@@ -38,7 +44,6 @@ const { images, title, description } = Astro.props;
 
   .album {
     font-family: 'Acari Sans Neue';
-    width: 100%;
   }
 
   .title {

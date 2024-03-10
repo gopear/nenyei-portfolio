@@ -30,5 +30,47 @@ export const photos: Photo[] = [
     description:
       "NYOMOD",
     url: '/assets/img3.jpg',
+  },
+  {
+    id: 4,
+    title: 'sracaim',
+    description:
+      "NYOMOD",
+    url: '/assets/img3.jpg',
+  },
+  {
+    id: 5,
+    title: 'szakallas srac itt',
+    description:
+      "bro",
+    url: '/assets/img1.jpg',
+  },
+  {
+    id: 6,
+    title: 'Kara xd',
+    description:
+      "Kara krézi",
+    url: '/assets/img2.jpg',
+  },
+  {
+    id: 7,
+    title: 'Kara xd',
+    description:
+      "Kara krézi",
+    url: '/assets/img2.jpg',
+  },
+  {
+    id: 8,
+    title: 'szakallas srac itt',
+    description:
+      "bro",
+    url: '/assets/img1.jpg',
+  },
+  {
+    id: 9,
+    title: 'sracaim',
+    description:
+      "NYOMOD",
+    url: '/assets/img3.jpg',
   }
 ]

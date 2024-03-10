@@ -1,5 +1,4 @@
 ---
-import { Image as AstroImage } from 'astro:assets';
 import type { Photo } from '../photos';
 
 interface Props {
@@ -8,12 +7,11 @@ interface Props {
 
 const { data } = Astro.props;
 const { url, title, description, id } = data;
-
 ---
 
-<div>
+<div id={`${id}`} class="wrapper">
   <a href=`/mutargy/${id}`>
-    <img src={url} alt={description} class:list={"h-auto max-w-full"} />
+    <img src={url} alt={description} class="h-auto max-w-full bg-none" transition:name=`mutargy-${id}` transition:animate="initial" />
   </a>
   <div class="description">
     <div class="left-col">
@@ -28,6 +26,7 @@ const { url, title, description, id } = data;
 </div>
 
 <style>
+
   .description {
     margin-top: 5px;
     display: flex;

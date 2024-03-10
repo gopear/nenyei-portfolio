@@ -13,9 +13,9 @@ const { id } = Astro.params;
 const photo = photos.find((photo) => photo.id == id);
 ---
 
-<Layout title="">
+<Layout title="ASD">
   <ViewTransitions slot="head"/>
-  <div class="wrapper columns-2">
+  <div class="wrapper" >
     <div class="text-wrapper">
       <div>
         <h1 class="title">{photo?.title}</h1>
@@ -24,7 +24,7 @@ const photo = photos.find((photo) => photo.id == id);
       <p class="price">20000Ft</p>
     </div>
     <div class="img-wrapper">
-      <img class="img" src={photo?.url} alt={photo?.title} />
+      <img class="img" src={photo?.url} alt={photo?.title} transition:name=`mutargy-${id}` transition:animate="initial" />
     </div>
   </div>
 </Layout>
