@@ -1,68 +1,73 @@
 ---
-import type { Photo } from '../photos';
+import type { Photo } from "../photos";
 
 interface Props {
-  data: Photo;
+    data: Photo;
+    prefix?: string;
 }
 
-const { data } = Astro.props;
+const { data, prefix } = Astro.props;
 const { url, title, description, id } = data;
 ---
 
 <div id={`${id}`} class="wrapper">
-  <a href=`/mutargy/${id}`>
-    <img src={url} alt={description} class="h-auto max-w-full bg-none" transition:name=`mutargy-${id}` transition:animate="initial" />
-  </a>
-  <div class="description">
-    <div class="left-col">
-      <p class="title">migransok</p>
-      <!-- <p class="date">2023.10.12</p> -->
+    <a href=`/mutargy/${id}`>
+        <img
+            src={url}
+            alt={description}
+            class="h-auto max-w-full bg-none"
+            transition:name=`${prefix}-${id}`
+            transition:animate="initial"
+        />
+    </a>
+    <div class="description">
+        <div class="left-col">
+            <p class="title">migransok</p>
+            <!-- <p class="date">2023.10.12</p> -->
+        </div>
+        <div class="right-col">
+            <p class="price">20.000 Ft</p>
+            <p class="size">20x12 cm</p>
+        </div>
     </div>
-    <div class="right-col">
-      <p class="price">20.000 Ft</p>
-      <p class="size">20x12 cm</p>
-    </div>
-  </div>
 </div>
 
 <style>
+    .description {
+        margin-top: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
-  .description {
-    margin-top: 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+    .left-col {
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+        font-weight: 400;
+        gap: 5px;
+    }
 
-  .left-col {
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
-    font-weight: 400;
-    gap: 5px;
-  }
+    .right-col {
+        margin-top: 2px;
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        gap: 5px;
+    }
 
-  .right-col {
-    margin-top: 2px;
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-    gap: 5px;
-  }
+    .date {
+        font-style: italic;
+        color: #a6a6a6;
+    }
 
-  .date {
-    font-style: italic;
-    color: #a6a6a6;
-  }
+    .price {
+        font-size: 20px;
+    }
 
-  .price {
-    font-size: 20px;
-  }
-
-  .size {
-    font-weight: 300;
-    font-size: 16px;
-    color: #a6a6a6;
-
-  }
+    .size {
+        font-weight: 300;
+        font-size: 16px;
+        color: #a6a6a6;
+    }
 </style>

@@ -3,9 +3,11 @@ import { ViewTransitions } from "astro:transitions";
 import Layout from "../../layouts/Layout.astro";
 import { photos } from "../../photos";
 import "../../styles/transitions.css";
+import arrow from "../../assets/arrow.svg";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
-  return photos.map((photo) => ({ params: { id: photo.id } }));
+    return photos.map((photo) => ({ params: { id: photo.id } }));
 }
 
 const { id } = Astro.params;
@@ -14,62 +16,75 @@ const photo = photos.find((photo) => photo.id == id);
 ---
 
 <Layout title="ASD">
-  <ViewTransitions slot="head"/>
-  <div class="wrapper" >
-    <div class="text-wrapper">
-      <div>
-        <h1 class="title">{photo?.title}</h1>
-        <p class="description">{photo?.description}</p>
-      </div>
-      <p class="price">20000Ft</p>
+    <ViewTransitions slot="head" />
+    <div class="wrapper">
+        <div class="text-wrapper">
+            <div>
+                <h1 class="title">{photo?.title}</h1>
+                <p class="description">{photo?.description}</p>
+            </div>
+            <p class="price">20000Ft</p>
+            <a href="/mutargy">
+                <Image src={arrow} alt="arrow" class="arrow" />
+            </a>
+        </div>
+        <div class="img-wrapper">
+            <img
+                class="img"
+                src={photo?.url}
+                alt={photo?.title}
+                transition:name=`mutargy-${id}`
+                transition:animate="initial"
+            />
+        </div>
     </div>
-    <div class="img-wrapper">
-      <img class="img" src={photo?.url} alt={photo?.title} transition:name=`mutargy-${id}` transition:animate="initial" />
-    </div>
-  </div>
+
+    <style>
+        .wrapper {
+            display: flex;
+        }
+
+        .text-wrapper {
+            flex: 0 0 auto;
+            width: 33.333333333%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin-top: 40px;
+            padding: 40px;
+        }
+
+        .title {
+            font-size: 30px;
+        }
+
+        .description {
+            margin-top: 10px;
+            margin-left: 20px;
+            font-weight: 200;
+            font-style: italic;
+            color: #a6a6a6;
+        }
+
+        .price {
+            margin-left: auto;
+            font-weight: 700;
+        }
+
+        .img-wrapper {
+            flex: 0 0 auto;
+            width: 66.666666667%;
+            display: flex;
+        }
+
+        .img {
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .arrow {
+            height: 50px;
+            width: 50px;
+        }
+    </style>
 </Layout>
-
-<style>
-
-  .wrapper {
-    display: flex;
-  }
-
-  .text-wrapper {
-    flex: 0 0 auto;
-    width: 33.333333333%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin-top: 40px;
-    padding: 40px;
-    height: 50%;
-  }
-
-  .title {
-    font-size: 30px;
-  }
-
-  .description {
-    margin-top: 10px;
-    margin-left: 20px;
-    font-weight: 200;
-    font-style: italic;
-    color: #a6a6a6;
-  }
-
-  .price {
-    margin-left: auto;
-    font-weight: 700;
-  }
-
-  .img-wrapper {
-    flex: 0 0 auto;
-    width: 66.666666667%;
-  }
-
-  .img {
-    max-width: 100%;
-    max-height: 100vh;
-  }
-</style>
